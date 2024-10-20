@@ -18,7 +18,8 @@ ENCODERS_PATH = "Models/label_encoders.pkl"
 
 # Load model and encoders
 logging.info("Loading model and encoders...")
-model = joblib.load(MODEL_PATH)
+with open(MODEL_PATH, 'rb') as f:
+    model = pickle.load(f)
 with open(ENCODERS_PATH, 'rb') as f:
     label_encoders = pickle.load(f)
 
