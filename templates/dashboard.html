@@ -61,7 +61,7 @@
                 };
 
                 // Make the fetch call
-                fetch('https://lab-analyst-recommendation-system-joderick-sherwin-js-projects.vercel.app/predict', {
+                fetch('https://lab-analyst-recommendation-system.vercel.app/predict', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -78,10 +78,10 @@
                     let resultsText = '';
                     for (let i = 1; i <= Object.keys(data).length / 2; i++) {
                         // Check for prediction and confidence presence
-                        if (data[`Prediction ${i}`] && data[`Confidence ${i}`]) {
+                        if (data[Prediction ${i}] && data[Confidence ${i}]) {
                             // Convert confidence to percentage format
-                            const confidenceValue = (data[`Confidence ${i}`] * 100).toFixed(2); // Multiplies by 100 and formats to two decimal places
-                            resultsText += `Analyst ID: ${data[`Prediction ${i}`]}<br>Confidence: ${confidenceValue}%<br><br>`;
+                            const confidenceValue = (data[Confidence ${i}] * 100).toFixed(2); // Multiplies by 100 and formats to two decimal places
+                            resultsText += Analyst ID: ${data[Prediction ${i}]}<br>Confidence: ${confidenceValue}%<br><br>;
                         }
                     }
 
@@ -104,7 +104,7 @@
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
-                    popup.innerHTML = `Error: ${error.message}`;
+                    popup.innerHTML = Error: ${error.message};
                     popup.style.display = "block"; // Show the popup even if there's an error
                     overlay.style.display = "block"; // Show the overlay
                     blurredContainer.classList.add('blurred'); // Blur the background container
