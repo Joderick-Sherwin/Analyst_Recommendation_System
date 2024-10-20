@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": ["https://joderick-sherwin.github.io"]}})
 
 # Paths to model and encoders
 MODEL_PATH = "Models/random_forest_model.pkl"
