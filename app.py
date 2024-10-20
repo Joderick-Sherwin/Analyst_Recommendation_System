@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import joblib
 import pickle
 import logging
 import numpy as np
@@ -17,8 +18,7 @@ ENCODERS_PATH = "Models/label_encoders.pkl"
 
 # Load model and encoders
 logging.info("Loading model and encoders...")
-with open(MODEL_PATH, 'rb') as f:
-    model = pickle.load(f)
+model = joblib.load(MODEL_PATH)
 with open(ENCODERS_PATH, 'rb') as f:
     label_encoders = pickle.load(f)
 
@@ -84,4 +84,4 @@ def predict():
         return jsonify({"error": "An unexpected error occurred."}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0')
